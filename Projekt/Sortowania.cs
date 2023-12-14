@@ -14,9 +14,9 @@ public class SortAlgorithm
                 if (data[j] > data[j + 1])
                 {
                     // Zamiana miejscami
-                    int temp = data[j];
+                    int tmp = data[j];
                     data[j] = data[j + 1];
-                    data[j + 1] = temp;
+                    data[j + 1] = tmp;
                     swapped = true;
                 }
             }
@@ -44,9 +44,9 @@ public class SortAlgorithm
             if (minIndex != i)
             {
                 // Zamiana miejscami tylko jeśli znajdziemy nowy minimum
-                int temp = data[minIndex];
+                int tmp = data[minIndex];
                 data[minIndex] = data[i];
-                data[i] = temp;
+                data[i] = tmp;
             }
         }
     }
@@ -56,16 +56,16 @@ public class SortAlgorithm
         int n = data.Count;
         for (int i = 1; i < n; i++)
         {
-            int key = data[i];
+            int tmp = data[i];
             int j = i - 1;
 
             // Przesuwanie elementów większych od key
-            while (j >= 0 && data[j] > key)
+            while (j >= 0 && data[j] > tmp)
             {
                 data[j + 1] = data[j];
                 j = j - 1;
             }
-            data[j + 1] = key;
+            data[j + 1] = tmp;
         }
     }
 
@@ -87,7 +87,7 @@ public class SortAlgorithm
 
     private int Partition(List<int> data, int low, int high)
     {
-        int pivot = data[low];
+        int p = data[low];
         int i = low - 1;
         int j = high + 1;
 
@@ -96,20 +96,20 @@ public class SortAlgorithm
             do
             {
                 i++;
-            } while (data[i] < pivot);
+            } while (data[i] < p);
 
             do
             {
                 j--;
-            } while (data[j] > pivot);
+            } while (data[j] > p);
 
             if (i >= j)
                 return j;
 
             // Zamiana miejscami
-            int temp = data[i];
+            int tmp = data[i];
             data[i] = data[j];
-            data[j] = temp;
+            data[j] = tmp;
         }
     }
 

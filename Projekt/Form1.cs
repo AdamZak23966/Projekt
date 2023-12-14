@@ -85,28 +85,22 @@ namespace Projekt
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Wyczyść wybór rodzaju ciągu do sortowania
+            
             radioButton1.Checked = false;
             radioButton2.Checked = false;
             radioButton3.Checked = false;
 
-            // Wyczyść wybór rodzaju algorytmu do sortowania
             comboBox1.SelectedIndex = -1;
 
-            // Wyczyść pole ilości elementów do sortowania
             textBox1.Clear();
 
-            // Wyczyść obie wykresy
             chart1.Series.Clear();
             chart2.Series.Clear();
 
-            // Wyczyść listę czasów algorytmów
             algorithmTimes.Clear();
 
-            // Wyczyść listbox z czasami
             listBox1.Items.Clear();
 
-            // Aktualizuj etykietę z czasem sortowania
             label5.Text = "label5";
         }
 
@@ -228,12 +222,12 @@ namespace Projekt
             chart2.Series.Clear();
             listBox1.Items.Clear();
 
-            foreach (var kvp in algorithmTimes)
+            foreach (var tmp in algorithmTimes)
             {
-                listBox1.Items.Add($"Czas sortowania ({kvp.Key}): {kvp.Value} ticks");
+                listBox1.Items.Add($"Czas sortowania ({tmp.Key}): {tmp.Value} ticks");
 
-                chart2.Series.Add(kvp.Key);
-                chart2.Series[kvp.Key].Points.AddY(kvp.Value);
+                chart2.Series.Add(tmp.Key);
+                chart2.Series[tmp.Key].Points.AddY(tmp.Value);
             }
         }
     }
